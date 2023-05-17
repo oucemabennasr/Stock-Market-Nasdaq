@@ -39,4 +39,35 @@ for file_name in file_stocks:
     temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
     df_stocks = df_stocks.union(temp_df)
 
-df_stocks.show()
+df_etfs = df_etfs.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
+                       df_etfs.Symbol == col("meta_Symbol"),
+                       "inner").drop("meta_Symbol")
+
+
+df_stocks = df_stocks.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
+                       df_stocks.Symbol == col("meta_Symbol"),
+                       "inner").drop("meta_Symbol")
+
+df_etfs = df_etfs.withColumn("Symbol", col("Symbol").cast("string"))
+df_etfs = df_etfs.withColumn("Security Name", col("Security Name").cast("string"))
+df_etfs = df_etfs.withColumn("Date", col("Date").cast("string"))
+df_etfs = df_etfs.withColumn("Open", col("Open").cast("float"))
+df_etfs = df_etfs.withColumn("High", col("High").cast("float"))
+df_etfs = df_etfs.withColumn("Low", col("Low").cast("float"))
+df_etfs = df_etfs.withColumn("Close", col("Close").cast("float"))
+df_etfs = df_etfs.withColumn("Adj Close", col("Adj Close").cast("float"))
+df_etfs = df_etfs.withColumn("Volume", col("Volume").cast("int"))
+
+df_stocks = df_stocks.withColumn("Symbol", col("Symbol").cast("string"))
+df_stocks = df_stocks.withColumn("Security Name", col("Security Name").cast("string"))
+df_stocks = df_stocks.withColumn("Date", col("Date").cast("string"))
+df_stocks = df_stocks.withColumn("Open", col("Open").cast("float"))
+df_stocks = df_stocks.withColumn("High", col("High").cast("float"))
+df_stocks = df_stocks.withColumn("Low", col("Low").cast("float"))
+df_stocks = df_stocks.withColumn("Close", col("Close").cast("float"))
+df_stocks = df_stocks.withColumn("Adj Close", col("Adj Close").cast("float"))
+df_stocks = df_stocks.withColumn("Volume", col("Volume").cast("int"))
+
+df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/etfs.parquet")
+
+df_stocks.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/stocks.parquet")
