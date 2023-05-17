@@ -1,7 +1,7 @@
 import os
 import pyspark
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import lit
+from pyspark.sql.functions import lit, col
 from pyspark.sql.types import StructType, StructField, StringType, FloatType
 
 spark = SparkSession.builder.appName("DataProcessing").getOrCreate()
@@ -35,7 +35,7 @@ for file_name in file_etfs:
 
 
 for file_name in file_stocks:
-    temp_df = spark.read.csv('/stock-market-dataset/stocks' + file_name, header=True)
+    temp_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/stocks/' + file_name, header=True)
     temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
     df_stocks = df_stocks.union(temp_df)
 
@@ -68,6 +68,14 @@ df_stocks = df_stocks.withColumn("Close", col("Close").cast("float"))
 df_stocks = df_stocks.withColumn("Adj Close", col("Adj Close").cast("float"))
 df_stocks = df_stocks.withColumn("Volume", col("Volume").cast("int"))
 
-df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/etfs.parquet")
 
+df_etfs = df_etfs.withColumnRenamed("Security Name", "Security_Name")
+df_etfs = df_etfs.withColumnRenamed("Adj Close", "Adj_Close")
+
+
+df_stocks = df_stocks.withColumnRenamed("Security Name", "Security_Name")
+df_stocks = df_stocks.withColumnRenamed("Adj Close", "Adj_Close")
+
+
+df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/etfs.parquet")
 df_stocks.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/stocks.parquet")
