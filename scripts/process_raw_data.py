@@ -1,16 +1,24 @@
 import os
 import pyspark
+#import threading
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, col
 from pyspark.sql.types import StructType, StructField, StringType, FloatType
+
+def process_files(file_list, directory_path, output_df):
+    for file_name in file_list:
+        file_path = os.path.join(directory_path, file_name)
+        temp_df = spark.read.csv(file_path, header=True, inferSchema=True)
+        temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
+        output_df = output_df.unionByName(temp_df)
+    return output_df
 
 spark = SparkSession.builder.appName("DataProcessing").getOrCreate()
 
 meta_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/symbols_valid_meta.csv', header=True)
 
-file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')
-
-file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')
+file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')[0:50]
+file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')[0:50]
 
 schema = StructType([
     StructField("Date", StringType(), True),
@@ -23,59 +31,54 @@ schema = StructType([
     StructField("Symbol", StringType(), True)
 ])
 
-
 df_etfs = spark.createDataFrame([], schema)
-
 df_stocks = spark.createDataFrame([], schema)
 
-for file_name in file_etfs:
-    temp_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/etfs/' + file_name, header=True)
-    temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
-    df_etfs = df_etfs.union(temp_df)
+# Create separate threads for ETFs and stocks file processing
+#etfs_thread = threading.Thread(target=process_files, args=(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs))
+#stocks_thread = threading.Thread(target=process_files, args=(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_stocks))
 
+# Start the threads
+#etfs_thread.start()
+#stocks_thread.start()
 
-for file_name in file_stocks:
-    temp_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/stocks/' + file_name, header=True)
-    temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
-    df_stocks = df_stocks.union(temp_df)
+# Wait for the threads to finish
+#etfs_thread.join()
+#stocks_thread.join()
 
+df_etfs = process_files(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs)
+
+df_stocks = process_files(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_etfs)
+
+# Join with meta_df
 df_etfs = df_etfs.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
-                       df_etfs.Symbol == col("meta_Symbol"),
-                       "inner").drop("meta_Symbol")
-
+                       df_etfs.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
 
 df_stocks = df_stocks.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
-                       df_stocks.Symbol == col("meta_Symbol"),
-                       "inner").drop("meta_Symbol")
+                           df_stocks.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
 
-df_etfs = df_etfs.withColumn("Symbol", col("Symbol").cast("string"))
-df_etfs = df_etfs.withColumn("Security Name", col("Security Name").cast("string"))
-df_etfs = df_etfs.withColumn("Date", col("Date").cast("string"))
-df_etfs = df_etfs.withColumn("Open", col("Open").cast("float"))
-df_etfs = df_etfs.withColumn("High", col("High").cast("float"))
-df_etfs = df_etfs.withColumn("Low", col("Low").cast("float"))
-df_etfs = df_etfs.withColumn("Close", col("Close").cast("float"))
-df_etfs = df_etfs.withColumn("Adj Close", col("Adj Close").cast("float"))
-df_etfs = df_etfs.withColumn("Volume", col("Volume").cast("int"))
+# Define column type conversions
+column_types = {
+    "Symbol": StringType(),
+    "Security Name": StringType(),
+    "Date": StringType(),
+    "Open": FloatType(),
+    "High": FloatType(),
+    "Low": FloatType(),
+    "Close": FloatType(),
+    "Adj Close": FloatType(),
+    "Volume": FloatType()
+}
 
-df_stocks = df_stocks.withColumn("Symbol", col("Symbol").cast("string"))
-df_stocks = df_stocks.withColumn("Security Name", col("Security Name").cast("string"))
-df_stocks = df_stocks.withColumn("Date", col("Date").cast("string"))
-df_stocks = df_stocks.withColumn("Open", col("Open").cast("float"))
-df_stocks = df_stocks.withColumn("High", col("High").cast("float"))
-df_stocks = df_stocks.withColumn("Low", col("Low").cast("float"))
-df_stocks = df_stocks.withColumn("Close", col("Close").cast("float"))
-df_stocks = df_stocks.withColumn("Adj Close", col("Adj Close").cast("float"))
-df_stocks = df_stocks.withColumn("Volume", col("Volume").cast("int"))
+# Apply column type conversions in a loop
+for column_name, column_type in column_types.items():
+    df_etfs = df_etfs.withColumn(column_name, col(column_name).cast(column_type))
+    df_stocks = df_stocks.withColumn(column_name, col(column_name).cast(column_type))
 
+# Rename columns
+df_etfs = df_etfs.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
+df_stocks = df_stocks.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
 
-df_etfs = df_etfs.withColumnRenamed("Security Name", "Security_Name")
-df_etfs = df_etfs.withColumnRenamed("Adj Close", "Adj_Close")
-
-
-df_stocks = df_stocks.withColumnRenamed("Security Name", "Security_Name")
-df_stocks = df_stocks.withColumnRenamed("Adj Close", "Adj_Close")
-
-
+# Write to Parquet
 df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/etfs.parquet")
 df_stocks.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/stocks.parquet")
