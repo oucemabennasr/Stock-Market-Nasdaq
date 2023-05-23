@@ -1,6 +1,5 @@
 import os
 import pyspark
-#import threading
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, col
 from pyspark.sql.types import StructType, StructField, StringType, FloatType
@@ -13,12 +12,19 @@ def process_files(file_list, directory_path, output_df):
         output_df = output_df.unionByName(temp_df)
     return output_df
 
-spark = SparkSession.builder.appName("DataProcessing").getOrCreate()
+spark = SparkSession.builder \
+    .appName("DataProcessing") \
+    .config("spark.executor.instances", "1") \
+    .config("spark.executor.cores", "2") \
+    .config("spark.executor.memory", "4g") \
+    .config("spark.driver.memory", "4g") \
+    .config("spark.sql.shuffle.partitions", "4") \
+    .getOrCreate()
 
 meta_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/symbols_valid_meta.csv', header=True)
 
-file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')[0:50]
-file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')[0:50]
+file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')
+file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')
 
 schema = StructType([
     StructField("Date", StringType(), True),
@@ -34,17 +40,6 @@ schema = StructType([
 df_etfs = spark.createDataFrame([], schema)
 df_stocks = spark.createDataFrame([], schema)
 
-# Create separate threads for ETFs and stocks file processing
-#etfs_thread = threading.Thread(target=process_files, args=(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs))
-#stocks_thread = threading.Thread(target=process_files, args=(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_stocks))
-
-# Start the threads
-#etfs_thread.start()
-#stocks_thread.start()
-
-# Wait for the threads to finish
-#etfs_thread.join()
-#stocks_thread.join()
 
 df_etfs = process_files(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs)
 
@@ -70,7 +65,7 @@ column_types = {
     "Volume": FloatType()
 }
 
-# Apply column type conversions in a loop
+# Apply column type conversions
 for column_name, column_type in column_types.items():
     df_etfs = df_etfs.withColumn(column_name, col(column_name).cast(column_type))
     df_stocks = df_stocks.withColumn(column_name, col(column_name).cast(column_type))
