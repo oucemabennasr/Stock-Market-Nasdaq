@@ -8,7 +8,15 @@ from pyspark.sql.types import StringType
 from pyspark.sql.window import Window
 
 
-spark = SparkSession.builder.appName("FeatureEngineering").getOrCreate()
+spark = SparkSession.builder.appName("FeatureEngineering")\
+    .config("spark.executor.instances", "1") \
+    .config("spark.executor.cores", "2") \
+    .config("spark.executor.memory", "4g") \
+    .config("spark.driver.memory", "4g") \
+    .config("spark.sql.shuffle.partitions", "4") \
+    .getOrCreate()
+
+
 window_spec = Window.partitionBy("Symbol").orderBy("Date").rowsBetween(-29, 0)
 
 @pandas_udf("float", PandasUDFType.GROUPED_AGG)
@@ -35,5 +43,5 @@ df_stocks = df_stocks.withColumn("adj_close_rolling_med", calculate_median(col("
 df_etfs = df_etfs.withColumn("Date", col("Date").cast(StringType()))
 df_stocks = df_stocks.withColumn("Date", col("Date").cast(StringType()))
 
-df_etfs.write.mode("overwrite").parquet("/home/cloud_user/Stock-Market-Nasdaq/data/new_parquet_file/etfs_new.parquet")
-df_stocks.write.mode("overwrite").parquet("/home/cloud_user/Stock-Market-Nasdaq/data/new_parquet_file/stocks_new.parquet")
+df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/FeatureEngineeringData/etfs.parquet")
+df_stocks.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/FeatureEngineeringData/stocks.parquet")
