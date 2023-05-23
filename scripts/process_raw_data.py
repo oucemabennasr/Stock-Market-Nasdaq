@@ -16,15 +16,15 @@ spark = SparkSession.builder \
     .appName("DataProcessing") \
     .config("spark.executor.instances", "1") \
     .config("spark.executor.cores", "2") \
-    .config("spark.executor.memory", "4g") \
-    .config("spark.driver.memory", "4g") \
+    .config("spark.executor.memory", "8g") \
+    .config("spark.driver.memory", "8g") \
     .config("spark.sql.shuffle.partitions", "4") \
     .getOrCreate()
 
 meta_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/symbols_valid_meta.csv', header=True)
 
-file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')
-file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')
+file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')[0:100]
+file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')[0:200]
 
 schema = StructType([
     StructField("Date", StringType(), True),
