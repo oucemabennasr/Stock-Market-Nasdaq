@@ -1,7 +1,9 @@
 import os
+import argparse
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, col
 from pyspark.sql.types import StructType, StructField, StringType, FloatType, IntegerType
+
 
 def process_files(file_list, directory_path, output_df):
     for file_name in file_list:
@@ -10,6 +12,7 @@ def process_files(file_list, directory_path, output_df):
         temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
         output_df = output_df.unionByName(temp_df)
     return output_df
+
 
 spark = SparkSession.builder \
     .appName("DataProcessing") \
@@ -20,36 +23,21 @@ spark = SparkSession.builder \
     .config("spark.sql.shuffle.partitions", "4") \
     .getOrCreate()
 
-meta_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/symbols_valid_meta.csv', header=True)
 
-file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')
-file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')
-
-schema = StructType([
-    StructField("Date", StringType(), True),
-    StructField("Open", FloatType(), True),
-    StructField("High", FloatType(), True),
-    StructField("Low", FloatType(), True),
-    StructField("Close", FloatType(), True),
-    StructField("Adj Close", FloatType(), True),
-    StructField("Volume", IntegerType(), True),
-    StructField("Symbol", StringType(), True)
-])
-
-df_etfs = spark.createDataFrame([], schema)
-df_stocks = spark.createDataFrame([], schema)
+parser = argparse.ArgumentParser(description='Process stock market data files.')
+parser.add_argument('directory', type=str, help='Directory path containing the data files')
+parser.add_argument('meta', type=str, help='Meta data file path containing the data files')
+parser.add_argument('number', type=int, default=2, help='Number of files to process (default: 2)')
+parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to process (etfs or stocks)')
 
 
-df_etfs = process_files(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs)
+args = parser.parse_args()
+directory_path = args.directory
+N = args.number
+metadatapath = args.meta
+data = args.data
 
-df_stocks = process_files(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_stocks)
-
-# Join with meta_df
-df_etfs = df_etfs.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
-                       df_etfs.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
-
-df_stocks = df_stocks.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
-                           df_stocks.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
+files = os.listdir(os.path.join(directory_path, data))[0:N]
 
 # Define column type conversions
 column_types = {
@@ -64,15 +52,33 @@ column_types = {
     "Volume": IntegerType()
 }
 
+schema = StructType([
+    StructField("Date", StringType(), True),
+    StructField("Open", FloatType(), True),
+    StructField("High", FloatType(), True),
+    StructField("Low", FloatType(), True),
+    StructField("Close", FloatType(), True),
+    StructField("Adj Close", FloatType(), True),
+    StructField("Volume", IntegerType(), True),
+    StructField("Symbol", StringType(), True)
+])
+
+meta = spark.read.csv(metadatapath, header=True)
+
+df = spark.createDataFrame([], schema)
+
+df = process_files(files, os.path.join(directory_path, data), df)
+
+# Join with meta_df
+df = df.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
+                       df_etfs.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
+
 # Apply column type conversions
 for column_name, column_type in column_types.items():
-    df_etfs = df_etfs.withColumn(column_name, col(column_name).cast(column_type))
-    df_stocks = df_stocks.withColumn(column_name, col(column_name).cast(column_type))
+    df = df.withColumn(column_name, col(column_name).cast(column_type))
 
 # Rename columns
-df_etfs = df_etfs.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
-df_stocks = df_stocks.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
+df = df_etfs.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
 
 # Write to Parquet
-df_etfs.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/etfs.parquet")
-df_stocks.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/data/parquet_file/stocks.parquet")
+df.write.parquet(os.path.join(directory_path, f'parquet_file/{data}.parquet'))
