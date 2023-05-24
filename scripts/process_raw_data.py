@@ -69,14 +69,14 @@ df = process_files(files, os.path.join(directory_path, data), df)
 
 # Join with meta_df
 df = df.join(meta.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
-                       df_etfs.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
+                       df.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
 
 # Apply column type conversions
 for column_name, column_type in column_types.items():
     df = df.withColumn(column_name, col(column_name).cast(column_type))
 
 # Rename columns
-df = df_etfs.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
+df = df.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
 
 # Write to Parquet
 df.write.parquet(os.path.join(directory_path, f'parquet_file/{data}.parquet'))
