@@ -1,3 +1,4 @@
+import os
 import argparse
 import pandas as pd
 from pyspark.sql import SparkSession
@@ -10,10 +11,16 @@ from pyspark.sql.window import Window
 parser = argparse.ArgumentParser(description='Process stock market data files.')
 parser.add_argument('directory', type=str, help='Directory path containing the data parquet files')
 parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to process (etfs or stocks)')
+parser.add_argument('directory_output', type=str, help='Directory path containing the output data')
+
 
 args = parser.parse_args()
+
+
 directory_path = args.directory
 data = args.data
+directory_output = args.directory_output
+
 
 spark = SparkSession.builder.appName("FeatureEngineering")\
     .config("spark.executor.instances", "1") \
@@ -33,11 +40,11 @@ def calculate_median(arr):
     return arr_copy.median()
 
 
-df = spark.read.parquet(os.path.join(directory_path, f'{data}.parquet')
-                        
+df = spark.read.parquet(os.path.join(directory_path, f'{data}.parquet'))
 df = df.withColumn("Date", to_date("Date", "yyyy-MM-dd"))
 df = df.withColumn("vol_moving_avg", avg("Volume").over(window_spec))
 df = df.withColumn("adj_close_rolling_med", calculate_median(col("Adj_Close")).over(window_spec))
 df = df.withColumn("Date", col("Date").cast(StringType()))
 
-df.write.parquet("/home/cloud_user/Stock-Market-Nasdaq/FeatureEngineeringData/etfs.parquet")
+
+df.write.parquet(os.path.join(directory_output,f'{data}.parquet'))
