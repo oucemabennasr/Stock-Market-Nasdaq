@@ -26,7 +26,6 @@ spark = SparkSession.builder \
 
 parser = argparse.ArgumentParser(description='Process stock market data files.')
 parser.add_argument('directory', type=str, help='Directory path containing the data files')
-parser.add_argument('meta', type=str, help='Meta data file path containing the data files')
 parser.add_argument('number', type=int, default=2, help='Number of files to process (default: 2)')
 parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to process (etfs or stocks)')
 
@@ -34,7 +33,6 @@ parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to 
 args = parser.parse_args()
 directory_path = args.directory
 N = args.number
-metadatapath = args.meta
 data = args.data
 
 files = os.listdir(os.path.join(directory_path, data))[0:N]
@@ -63,14 +61,14 @@ schema = StructType([
     StructField("Symbol", StringType(), True)
 ])
 
-meta = spark.read.csv(metadatapath, header=True)
+meta = spark.read.csv(os.path.join(directory_path, 'symbols_valid_meta.csv'), header=True)
 
 df = spark.createDataFrame([], schema)
 
 df = process_files(files, os.path.join(directory_path, data), df)
 
 # Join with meta_df
-df = df.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
+df = df.join(meta.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
                        df_etfs.Symbol == col("meta_Symbol"), "inner").drop("meta_Symbol")
 
 # Apply column type conversions
