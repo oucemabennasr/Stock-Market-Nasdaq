@@ -23,8 +23,8 @@ spark = SparkSession.builder \
 
 meta_df = spark.read.csv('/home/cloud_user/Stock-Market-Nasdaq/data/symbols_valid_meta.csv', header=True)
 
-file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')[0:100]
-file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')[0:200]
+file_etfs = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/etfs')
+file_stocks = os.listdir('/home/cloud_user/Stock-Market-Nasdaq/data/stocks')
 
 schema = StructType([
     StructField("Date", StringType(), True),
