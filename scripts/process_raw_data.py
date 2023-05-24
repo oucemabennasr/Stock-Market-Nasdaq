@@ -1,8 +1,7 @@
 import os
-import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, col
-from pyspark.sql.types import StructType, StructField, StringType, FloatType
+from pyspark.sql.types import StructType, StructField, StringType, FloatType, IntegerType
 
 def process_files(file_list, directory_path, output_df):
     for file_name in file_list:
@@ -33,7 +32,7 @@ schema = StructType([
     StructField("Low", FloatType(), True),
     StructField("Close", FloatType(), True),
     StructField("Adj Close", FloatType(), True),
-    StructField("Volume", FloatType(), True),
+    StructField("Volume", IntegerType(), True),
     StructField("Symbol", StringType(), True)
 ])
 
@@ -43,7 +42,7 @@ df_stocks = spark.createDataFrame([], schema)
 
 df_etfs = process_files(file_etfs, '/home/cloud_user/Stock-Market-Nasdaq/data/etfs', df_etfs)
 
-df_stocks = process_files(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_etfs)
+df_stocks = process_files(file_stocks, '/home/cloud_user/Stock-Market-Nasdaq/data/stocks', df_stocks)
 
 # Join with meta_df
 df_etfs = df_etfs.join(meta_df.select("Symbol", "Security Name").withColumnRenamed("Symbol", "meta_Symbol"),
@@ -62,7 +61,7 @@ column_types = {
     "Low": FloatType(),
     "Close": FloatType(),
     "Adj Close": FloatType(),
-    "Volume": FloatType()
+    "Volume": IntegerType()
 }
 
 # Apply column type conversions
