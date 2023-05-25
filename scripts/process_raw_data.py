@@ -6,9 +6,18 @@ from pyspark.sql.types import StructType, StructField, StringType, FloatType, In
 
 
 def process_files(file_list, directory_path, output_df):
+    schema = StructType([
+    StructField("Date", StringType(), True),
+    StructField("Open", FloatType(), True),
+    StructField("High", FloatType(), True),
+    StructField("Low", FloatType(), True),
+    StructField("Close", FloatType(), True),
+    StructField("Adj Close", FloatType(), True),
+    StructField("Volume", IntegerType(), True),
+])
     for file_name in file_list:
         file_path = os.path.join(directory_path, file_name)
-        temp_df = spark.read.csv(file_path, header=True, inferSchema=True)
+        temp_df = spark.read.csv(file_path, header=True, schema=schema)
         temp_df = temp_df.withColumn("Symbol", lit(os.path.splitext(os.path.basename(file_name))[0]))
         output_df = output_df.unionByName(temp_df)
     return output_df
