@@ -2,8 +2,17 @@ import subprocess
 import shutil
 import os
 
+
+def restart_shell():
+    # Get the current shell command
+    shell = os.environ.get('SHELL')
+    # Restart the shell
+    os.system(shell)
+
+    
 # Install required packages
 subprocess.call(['pip', 'install', 'kaggle', 'gwpy'])
+
 
 # Create kaggle.json file
 kaggle_json = '{"username":"bennasroussama","key":"9025a47c05f1866e244c283cb19d78d7"}'
@@ -13,6 +22,7 @@ with open('/.kaggle/kaggle.json', 'w') as f:
 # Set permissions for kaggle.json
 subprocess.call(['chmod', '600', '/.kaggle/kaggle.json'])
 
+restart_shell()
 # Download dataset
 subprocess.call(['kaggle', 'datasets', 'download', '-d', 'jacksoncrow/stock-market-dataset'])
 
