@@ -2,8 +2,8 @@ import os
 import argparse
 import pandas as pd
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_date, avg
-from pyspark.sql.pandas.functions import pandas_udf, PandasUDFType
+from pyspark.sql.functions import col, to_date, avg, when, row_number, expr, percentile_approx
+#from pyspark.sql.pandas.functions import pandas_udf, PandasUDFType
 from pyspark.sql.types import StringType
 from pyspark.sql.window import Window
 
@@ -31,13 +31,13 @@ spark = SparkSession.builder.appName("FeatureEngineering")\
     .getOrCreate()
 
 
-window_spec = Window.partitionBy("Symbol").orderBy("Date").rowsBetween(-29, 0)
+window_spec = Window.partitionBy("Symbol").orderBy("Date").rowsBetween(Window.unboundedPreceding, Window.currentRow)
 
 
-@pandas_udf("float", PandasUDFType.GROUPED_AGG)
-def calculate_median(arr):
-    arr_copy = arr.copy()
-    return arr_copy.median()
+#@pandas_udf("float", PandasUDFType.GROUPED_AGG)
+#def calculate_median(arr):
+#    arr_copy = arr.copy()
+#    return arr_copy.median()
 
 
 df = spark.read.parquet(os.path.join(directory_path, f'{data}.parquet'))
@@ -46,8 +46,16 @@ df.cache()
 df = df.withColumn("Date", to_date("Date", "yyyy-MM-dd"))
 
 
-df = df.withColumn("vol_moving_avg", avg("Volume").over(window_spec))
-df = df.withColumn("adj_close_rolling_med", calculate_median(col("Adj_Close")).over(window_spec))
+df = df.withColumn("vol_moving_avg",
+                   when(row_number().over(window_spec) > 29,
+                        avg("Volume").over(window_spec)).otherwise(None))
+
+
+df = df.withColumn("adj_close_rolling",
+                   when(row_number().over(window_spec) > 29,
+                        expr("percentile_approx(`Adj Close`, 0.5)").over(window_spec)).otherwise(None))
+
+
 df = df.withColumn("Date", col("Date").cast(StringType()))
 
 
