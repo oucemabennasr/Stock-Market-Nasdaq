@@ -41,7 +41,11 @@ def calculate_median(arr):
 
 
 df = spark.read.parquet(os.path.join(directory_path, f'{data}.parquet'))
+df.cache()
+
 df = df.withColumn("Date", to_date("Date", "yyyy-MM-dd"))
+
+
 df = df.withColumn("vol_moving_avg", avg("Volume").over(window_spec))
 df = df.withColumn("adj_close_rolling_med", calculate_median(col("Adj_Close")).over(window_spec))
 df = df.withColumn("Date", col("Date").cast(StringType()))
