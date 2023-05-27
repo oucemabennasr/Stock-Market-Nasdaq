@@ -7,3 +7,4 @@ sudo apt install python3-pip
 sudo pip3 install pandas
 sudo pip3 install pyarrow
 sudo pip3 install pyspark
+sudo pip3 install -U scikit-learn
