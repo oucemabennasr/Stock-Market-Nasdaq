@@ -53,7 +53,7 @@ df = df.withColumn("vol_moving_avg",
                         avg("Volume").over(window_spec)).otherwise(None))
 
 
-df = df.withColumn("adj_close_rolling",
+df = df.withColumn("adj_close_rolling_med",
                    when(row_number().over(window_spec) > 29,
                         expr("percentile_approx(`Adj_Close`, 0.5)").over(window_spec)).otherwise(None))
 
