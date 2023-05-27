@@ -14,7 +14,7 @@ data.set_index('Date', inplace=True)
 data.dropna(inplace=True)
 
 # Select features and target
-features = ['vol_moving_avg', 'adj_close_rolling']
+features = ['vol_moving_avg', 'adj_close_rolling_med']
 target = 'Volume'
 
 X = data[features]
