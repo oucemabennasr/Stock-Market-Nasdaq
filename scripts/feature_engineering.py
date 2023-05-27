@@ -25,9 +25,11 @@ directory_output = args.directory_output
 spark = SparkSession.builder.appName("FeatureEngineering")\
     .config("spark.executor.instances", "1") \
     .config("spark.executor.cores", "2") \
-    .config("spark.executor.memory", "4g") \
-    .config("spark.driver.memory", "4g") \
+    .config("spark.executor.memory", "8g") \
+    .config("spark.driver.memory", "8g") \
     .config("spark.sql.shuffle.partitions", "4") \
+    .config("spark.shuffle.file.buffer", "1m") \
+    .config("spark.shuffle.unsafe.file.output.buffer", "2m") \
     .getOrCreate()
 
 
@@ -41,7 +43,7 @@ window_spec = Window.partitionBy("Symbol").orderBy("Date").rowsBetween(Window.un
 
 
 df = spark.read.parquet(os.path.join(directory_path, f'{data}.parquet'))
-df.cache()
+
 
 df = df.withColumn("Date", to_date("Date", "yyyy-MM-dd"))
 
@@ -53,10 +55,15 @@ df = df.withColumn("vol_moving_avg",
 
 df = df.withColumn("adj_close_rolling",
                    when(row_number().over(window_spec) > 29,
-                        expr("percentile_approx(`Adj Close`, 0.5)").over(window_spec)).otherwise(None))
+                        expr("percentile_approx(`Adj_Close`, 0.5)").over(window_spec)).otherwise(None))
 
 
 df = df.withColumn("Date", col("Date").cast(StringType()))
 
+df.cache()
+
+
+num_partitions = 10
+df = df.repartition(num_partitions)
 
 df.write.parquet(os.path.join(directory_output,f'{data}.parquet'))

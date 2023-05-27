@@ -86,6 +86,7 @@ for column_name, column_type in column_types.items():
 
 # Rename columns
 df = df.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("Adj Close", "Adj_Close")
-
+num_partitions = 10
+df = df.repartition(num_partitions)
 # Write to Parquet
 df.write.parquet(os.path.join(directory_path, f'parquet_file/{data}.parquet'))
