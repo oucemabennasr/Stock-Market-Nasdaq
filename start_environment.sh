@@ -8,7 +8,8 @@ sudo pip3 install virtualenv
 virtualenv airflow_env
 source airflow_env/bin/activate
 pip3 install apache-airflow[sentry,statsd]
-pip install apache-airflow-providers-apache-spark
+pip3 install apache-airflow-providers-apache-spark
+pip3 install apache-airflow-providers-cncf-kubernetes
 mkdir airflow
 cd airflow
 airflow db init
