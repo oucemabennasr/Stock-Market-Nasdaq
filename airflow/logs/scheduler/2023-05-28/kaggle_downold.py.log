@@ -1,0 +1,305 @@
+[2023-05-28T22:09:09.816+0000] {processor.py:157} INFO - Started process (PID=21182) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:09.816+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:09:09.817+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.817+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:09.828+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:09.949+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.949+0000] {manager.py:504} INFO - Created Permission View: can read on DAG:download_stock_data
+[2023-05-28T22:09:09.961+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.961+0000] {manager.py:504} INFO - Created Permission View: can edit on DAG:download_stock_data
+[2023-05-28T22:09:09.970+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.970+0000] {manager.py:504} INFO - Created Permission View: can delete on DAG:download_stock_data
+[2023-05-28T22:09:09.971+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.971+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:09:09.983+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.983+0000] {dag.py:2747} INFO - Creating ORM DAG for download_stock_data
+[2023-05-28T22:09:09.993+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:09.992+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:09:10.014+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.205 seconds
+[2023-05-28T22:09:40.951+0000] {processor.py:157} INFO - Started process (PID=21184) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:40.952+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:09:40.953+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:40.952+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:40.963+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:09:40.987+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:40.987+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:09:41.007+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:09:41.007+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:09:41.030+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.081 seconds
+[2023-05-28T22:10:11.321+0000] {processor.py:157} INFO - Started process (PID=21187) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:11.323+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:10:11.323+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:11.323+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:11.333+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:11.355+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:11.355+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:10:11.381+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:11.381+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:10:11.404+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.084 seconds
+[2023-05-28T22:10:41.516+0000] {processor.py:157} INFO - Started process (PID=21188) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:41.517+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:10:41.519+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:41.519+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:41.531+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:10:41.553+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:41.553+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:10:41.574+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:10:41.574+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:10:41.596+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.087 seconds
+[2023-05-28T22:11:11.783+0000] {processor.py:157} INFO - Started process (PID=21190) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:11.784+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:11:11.785+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:11.784+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:11.795+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:11.819+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:11.819+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:11:11.842+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:11.842+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:11:11.864+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.084 seconds
+[2023-05-28T22:11:42.023+0000] {processor.py:157} INFO - Started process (PID=21191) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:42.024+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:11:42.025+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:42.025+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:42.037+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:11:42.066+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:42.065+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:11:42.089+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:11:42.088+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:11:42.115+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.095 seconds
+[2023-05-28T22:12:12.342+0000] {processor.py:157} INFO - Started process (PID=21193) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:12.344+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:12:12.344+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:12.344+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:12.355+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:12.379+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:12.379+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:12:12.404+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:12.403+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:12:12.427+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.087 seconds
+[2023-05-28T22:12:43.138+0000] {processor.py:157} INFO - Started process (PID=21194) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:43.139+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:12:43.139+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:43.139+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:43.150+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:12:43.173+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:43.173+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:12:43.196+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:12:43.196+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:12:43.220+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.084 seconds
+[2023-05-28T22:13:13.317+0000] {processor.py:157} INFO - Started process (PID=21197) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:13.318+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:13:13.319+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:13.318+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:13.329+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:13.351+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:13.351+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:13:13.372+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:13.371+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:13:13.403+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.089 seconds
+[2023-05-28T22:13:43.513+0000] {processor.py:157} INFO - Started process (PID=21198) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:43.515+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:13:43.516+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:43.515+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:43.526+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:13:43.547+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:43.547+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:13:43.569+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:13:43.569+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:13:43.592+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.081 seconds
+[2023-05-28T22:14:13.696+0000] {processor.py:157} INFO - Started process (PID=21202) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:13.697+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:14:13.698+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:13.698+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:13.708+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:13.730+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:13.730+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:14:13.750+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:13.750+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:14:13.774+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.081 seconds
+[2023-05-28T22:14:43.877+0000] {processor.py:157} INFO - Started process (PID=21203) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:43.878+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:14:43.879+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:43.878+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:43.889+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:14:43.913+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:43.912+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:14:43.941+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:14:43.941+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:14:43.964+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.090 seconds
+[2023-05-28T22:15:14.057+0000] {processor.py:157} INFO - Started process (PID=21206) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:14.058+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:15:14.058+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:14.058+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:14.069+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:14.094+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:14.094+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:15:14.118+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:14.117+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:15:14.142+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.088 seconds
+[2023-05-28T22:15:44.186+0000] {processor.py:157} INFO - Started process (PID=21207) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:44.186+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:15:44.187+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:44.187+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:44.198+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:15:44.226+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:44.226+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:15:44.248+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:15:44.248+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:15:44.269+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.086 seconds
+[2023-05-28T22:16:14.375+0000] {processor.py:157} INFO - Started process (PID=21209) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:14.379+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:16:14.379+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:14.379+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:14.393+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:14.415+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:14.415+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:16:14.439+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:14.438+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:16:14.462+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.089 seconds
+[2023-05-28T22:16:44.560+0000] {processor.py:157} INFO - Started process (PID=21210) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:44.561+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:16:44.562+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:44.561+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:44.572+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:16:44.597+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:44.596+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:16:44.618+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:16:44.618+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:16:44.640+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.083 seconds
+[2023-05-28T22:17:14.703+0000] {processor.py:157} INFO - Started process (PID=21215) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:14.704+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:17:14.705+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:14.705+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:14.717+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:14.742+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:14.742+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:17:14.768+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:14.768+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:17:14.802+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.102 seconds
+[2023-05-28T22:17:44.992+0000] {processor.py:157} INFO - Started process (PID=21217) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:44.992+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:17:44.993+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:44.993+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:45.003+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:17:45.028+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:45.028+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:17:45.050+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:17:45.050+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:17:45.076+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.087 seconds
+[2023-05-28T22:18:15.171+0000] {processor.py:157} INFO - Started process (PID=21220) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:15.256+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:18:15.257+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:15.257+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:15.268+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:15.291+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:15.290+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:18:15.315+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:15.314+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:18:15.338+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.169 seconds
+[2023-05-28T22:18:45.450+0000] {processor.py:157} INFO - Started process (PID=21231) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:45.451+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:18:45.452+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:45.452+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:45.462+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:18:45.486+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:45.486+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:18:45.511+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:18:45.510+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:18:45.534+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.087 seconds
+[2023-05-28T22:19:15.629+0000] {processor.py:157} INFO - Started process (PID=21235) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:15.646+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:19:15.646+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:15.646+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:15.657+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:15.683+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:15.683+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:19:15.706+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:15.706+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:19:15.730+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.104 seconds
+[2023-05-28T22:19:45.911+0000] {processor.py:157} INFO - Started process (PID=21239) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:45.913+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:19:45.914+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:45.914+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:45.927+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:19:45.951+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:45.950+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:19:45.973+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:19:45.972+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:19:45.999+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.091 seconds
+[2023-05-28T22:20:16.097+0000] {processor.py:157} INFO - Started process (PID=21243) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:16.097+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:20:16.098+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:16.098+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:16.108+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:16.137+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:16.137+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:20:16.157+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:16.157+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:20:16.178+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.084 seconds
+[2023-05-28T22:20:46.283+0000] {processor.py:157} INFO - Started process (PID=21245) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:46.284+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:20:46.284+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:46.284+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:46.295+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:20:46.318+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:46.317+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:20:46.338+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:20:46.338+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:20:46.361+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.080 seconds
+[2023-05-28T22:21:16.464+0000] {processor.py:157} INFO - Started process (PID=21250) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:16.465+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:21:16.466+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:16.466+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:16.475+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:16.498+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:16.498+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:21:16.519+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:16.519+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:21:16.540+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.078 seconds
+[2023-05-28T22:21:46.647+0000] {processor.py:157} INFO - Started process (PID=21256) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:46.647+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:21:46.648+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:46.648+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:46.659+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:21:46.687+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:46.687+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:21:46.711+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:21:46.711+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:21:46.739+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.095 seconds
+[2023-05-28T22:22:16.835+0000] {processor.py:157} INFO - Started process (PID=21262) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:16.836+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:22:16.836+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:16.836+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:16.848+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:16.872+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:16.872+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:22:16.900+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:16.900+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:22:16.926+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.095 seconds
+[2023-05-28T22:22:47.018+0000] {processor.py:157} INFO - Started process (PID=21264) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:47.019+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:22:47.020+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:47.019+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:47.030+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:22:47.051+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:47.051+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:22:47.072+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:22:47.072+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:22:47.173+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.157 seconds
+[2023-05-28T22:23:17.310+0000] {processor.py:157} INFO - Started process (PID=21267) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:17.311+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:23:17.311+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:17.311+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:17.321+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:17.348+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:17.348+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:23:17.375+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:17.375+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:23:17.397+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.090 seconds
+[2023-05-28T22:23:47.495+0000] {processor.py:157} INFO - Started process (PID=21269) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:47.496+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:23:47.496+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:47.496+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:47.507+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:23:47.531+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:47.531+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:23:47.555+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:23:47.555+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:23:47.578+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.085 seconds
+[2023-05-28T22:24:17.690+0000] {processor.py:157} INFO - Started process (PID=21274) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:17.691+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:24:17.692+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:17.692+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:17.702+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:17.724+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:17.724+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:24:17.746+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:17.746+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:24:17.768+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.080 seconds
+[2023-05-28T22:24:47.872+0000] {processor.py:157} INFO - Started process (PID=21277) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:47.873+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:24:47.874+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:47.874+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:47.884+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:24:47.908+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:47.908+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:24:47.930+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:24:47.930+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:24:47.954+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.084 seconds
+[2023-05-28T22:25:18.054+0000] {processor.py:157} INFO - Started process (PID=21281) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:18.055+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:25:18.055+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:18.055+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:18.068+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:18.093+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:18.093+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:25:18.114+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:18.113+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:25:18.134+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.083 seconds
+[2023-05-28T22:25:48.256+0000] {processor.py:157} INFO - Started process (PID=21283) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:48.257+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:25:48.257+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:48.257+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:48.268+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:25:48.291+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:48.291+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:25:48.314+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:25:48.314+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:25:48.343+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.090 seconds
+[2023-05-28T22:34:41.392+0000] {processor.py:157} INFO - Started process (PID=21422) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:34:41.397+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:34:41.398+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:34:41.398+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:34:41.408+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:34:41.432+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:34:41.432+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:34:41.453+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:34:41.452+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:34:41.476+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.087 seconds
+[2023-05-28T22:35:11.525+0000] {processor.py:157} INFO - Started process (PID=21435) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:11.526+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:35:11.526+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:11.526+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:11.536+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:11.558+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:11.558+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:35:11.580+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:11.579+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:35:11.601+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.079 seconds
+[2023-05-28T22:35:42.202+0000] {processor.py:157} INFO - Started process (PID=21439) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:42.203+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:35:42.203+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:42.203+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:42.214+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:35:42.236+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:42.236+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:35:42.258+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:35:42.258+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:35:42.279+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.080 seconds
+[2023-05-28T22:36:12.703+0000] {processor.py:157} INFO - Started process (PID=21442) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:36:12.704+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:36:12.704+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:36:12.704+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:36:12.714+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:36:12.736+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:36:12.735+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:36:12.757+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:36:12.756+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:36:12.779+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.078 seconds
+[2023-05-28T22:39:19.131+0000] {processor.py:157} INFO - Started process (PID=22362) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:19.132+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:39:19.132+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:19.132+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:19.138+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:19.160+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:19.159+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:39:19.177+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:19.176+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:39:19.196+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.068 seconds
+[2023-05-28T22:39:49.908+0000] {processor.py:157} INFO - Started process (PID=22365) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:49.909+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:39:49.910+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:49.909+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:49.916+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:39:49.938+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:49.938+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:39:49.956+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:39:49.956+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:39:49.976+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.070 seconds
+[2023-05-28T22:40:20.409+0000] {processor.py:157} INFO - Started process (PID=22369) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:20.551+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:40:20.551+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:20.551+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:20.558+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:20.641+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:20.640+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:40:20.660+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:20.659+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:40:20.683+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.276 seconds
+[2023-05-28T22:40:51.075+0000] {processor.py:157} INFO - Started process (PID=22373) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:51.076+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:40:51.077+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:51.076+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:51.083+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:40:51.105+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:51.105+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:40:51.126+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:40:51.125+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:40:51.147+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.076 seconds
+[2023-05-28T22:41:21.481+0000] {processor.py:157} INFO - Started process (PID=22385) to work on /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:41:21.482+0000] {processor.py:826} INFO - Processing file /home/cloud_user/airflow/dags/kaggle_downold.py for tasks to queue
+[2023-05-28T22:41:21.482+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:41:21.482+0000] {dagbag.py:541} INFO - Filling up the DagBag from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:41:21.488+0000] {processor.py:836} INFO - DAG(s) dict_keys(['download_stock_data']) retrieved from /home/cloud_user/airflow/dags/kaggle_downold.py
+[2023-05-28T22:41:21.510+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:41:21.510+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-05-28T22:41:21.529+0000] {logging_mixin.py:149} INFO - [2023-05-28T22:41:21.529+0000] {dag.py:3486} INFO - Setting next_dagrun for download_stock_data to None, run_after=None
+[2023-05-28T22:41:21.549+0000] {processor.py:179} INFO - Processing /home/cloud_user/airflow/dags/kaggle_downold.py took 0.071 seconds
