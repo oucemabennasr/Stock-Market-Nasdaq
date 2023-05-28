@@ -3,12 +3,11 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from airflow.operators.bash_operator import BashOperator
-from airflow.utils.dates import days_ago
 
 default_args = {
-    'start_date': days_ago(1),
+    'start_date': datetime(2023, 6, 1),
     'retries': 3,
-    'retry_delay': timedelta(minutes=5),
+    'retry_delay': timedelta(minutes=1),
 }
 
 dag = DAG(
