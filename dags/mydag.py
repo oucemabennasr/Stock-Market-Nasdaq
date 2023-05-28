@@ -1,5 +1,4 @@
-  GNU nano 4.8                                                                                                                                                                                                                                                                                                    airflow/dags/mydag.py                                                                                                                                                                                                                                                                                                              import logging
-import airflow
+import logging
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
@@ -72,5 +71,5 @@ feature_engineering_stocks = SparkSubmitOperator(
 
 process_raw_data_etfs >> feature_engineering_etfs >> ml_training_etfs
 process_raw_data_stocks >> feature_engineering_stocks
-#if __name__ == "__main__":
-#    dag.cli()
+if __name__ == "__main__":
+    dag.cli()
