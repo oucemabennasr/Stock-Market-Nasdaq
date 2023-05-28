@@ -18,7 +18,7 @@ pip3 install apache-airflow-providers-cncf-kubernetes
 mkdir airflow
 cd airflow
 airflow db init
-sed -i 's/load_examples = True/load_examples = False/' /home/cloud_user/airflow/airflow.cfg
-mkdir dags
-airflow users create --username oucema --firstname  oussama --lastname BenNasr --role Admin --email my@example.com --password mypass
-airflow scheduler
+#sed -i 's/load_examples = True/load_examples = False/' /home/cloud_user/airflow/airflow.cfg
+#mkdir dags
+#airflow users create --username oucema --firstname  oussama --lastname BenNasr --role Admin --email my@example.com --password mypass
+#airflow scheduler
