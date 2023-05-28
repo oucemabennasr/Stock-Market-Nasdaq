@@ -11,10 +11,10 @@ sudo pip3 install pandas
 sudo pip3 install pyarrow
 sudo pip3 install pyspark
 sudo pip3 install -U scikit-learn
-pip install xgboost
-pip3 install apache-airflow
-pip3 install apache-airflow-providers-apache-spark
-pip3 install apache-airflow-providers-cncf-kubernetes
+sudo pip install xgboost
+sudo pip3 install apache-airflow
+sudo pip3 install apache-airflow-providers-apache-spark
+sudo pip3 install apache-airflow-providers-cncf-kubernetes
 #mkdir airflow
 #cd airflow
 #airflow db init
