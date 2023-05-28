@@ -1,0 +1,7 @@
+{
+  "queue": "root.default",
+  "master": "local[*]",
+  "spark-homme": "/usr/local/spark",
+  "spark_binary": "spark-submit",
+  "namespace": "default"
+}
