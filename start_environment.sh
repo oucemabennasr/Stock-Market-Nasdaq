@@ -12,6 +12,7 @@ pip install apache-airflow-providers-apache-spark
 mkdir airflow
 cd airflow
 airflow db init
+sed -i 's/load_examples = True/load_examples = False/' /path/to/airflow.cfg
 mkdir dags
 sudo pip3 install pandas
 sudo pip3 install pyarrow
