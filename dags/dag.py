@@ -26,10 +26,10 @@ dag = DAG(
     description='DAG for stock market data processing and machine learning training',
 )
 
-scripts_dir = '/home/cloud_user/Stock-Market-Nasdaq/scripts'
-data_dir = '/home/cloud_user/Stock-Market-Nasdaq/data'
-parquet_file_path = f'{data_dir}/parquet_file'
-output_dir = f'{data_dir}/feacher_ing'
+scripts_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/src'
+data_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/data/raw_data'
+parquet_file_path = '/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format'
+output_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med'
 
 process_raw_data_etfs = BashOperator(
     task_id='process_raw_data_etfs',
@@ -47,7 +47,7 @@ feature_engineering_etfs = BashOperator(
 
 ml_training_etfs = BashOperator(
     task_id='ml_training_etfs',
-    bash_command=f'{scripts_dir}/ml_training || true',
+    bash_command=f'python {scripts_dir}/ml_training.py etfs || true',
     trigger_rule='all_success',
     dag=dag,
 )
@@ -68,7 +68,7 @@ feature_engineering_stocks = BashOperator(
 
 ml_training_etfs = BashOperator(
     task_id='ml_training_stocks'',
-    bash_command=f'{scripts_dir}/ml_training || true',
+    bash_command=f'{scripts_dir}/ml_training.py stocks || true',
     trigger_rule='all_success',
     dag=dag,
 )
