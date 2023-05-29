@@ -13,7 +13,7 @@ parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to 
 args = parser.parse_args()
 d = args.data
 
-data = pd.read_parquet(f'/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/{d}.parquet')
+data = pd.read_parquet(f'/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/{d}.parquet')
 
 
 data['Date'] = pd.to_datetime(data['Date'])
@@ -52,14 +52,14 @@ accuracy = (accurate_predictions / len(y_test)) * 100
 version = '1.0'
 
 # Save the trained model to disk with the version
-file_path = '/home/oucemabennasr/Stock-Market-Nasdaq/model'
+file_path = '/home/cloud_user/Stock-Market-Nasdaq/model'
 os.makedirs(file_path, exist_ok=True)
 file_path = os.path.join(file_path, f'model{d}_{version}.pkl')
 
 with open(file_path, 'wb') as f:
     pickle.dump(model, f)
 # Set up logging
-logging.basicConfig(filename=f'/home/oucemabennasr/Stock-Market-Nasdaq/data/logs/ml_logs/training_metrics_{d}{version}.log', level=logging.INFO)
+logging.basicConfig(filename=f'/home/cloud_user/Stock-Market-Nasdaq/data/logs/ml_logs/training_metrics_{d}{version}.log', level=logging.INFO)
 logger = logging.getLogger()
 
 # Log training metrics

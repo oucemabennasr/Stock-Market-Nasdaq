@@ -26,10 +26,10 @@ dag = DAG(
     description='DAG for stock market data processing and machine learning training',
 )
 
-scripts_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/src'
-data_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/data/raw_data'
-parquet_file_path = '/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format'
-output_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med'
+scripts_dir = '/home/cloud_user/Stock-Market-Nasdaq/src'
+data_dir = '/home/cloud_user/Stock-Market-Nasdaq/data/raw_data'
+parquet_file_path = '/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format'
+output_dir = '/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med'
 
 process_raw_data_etfs = BashOperator(
     task_id='process_raw_data_etfs',

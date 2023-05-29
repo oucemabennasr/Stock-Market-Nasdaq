@@ -1,0 +1,1212 @@
+[2023-05-29T10:12:59.132+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_market_dag.feature_engineering_etfs manual__2023-05-29T09:26:54.433175+00:00 [queued]>
+[2023-05-29T10:12:59.168+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_market_dag.feature_engineering_etfs manual__2023-05-29T09:26:54.433175+00:00 [queued]>
+[2023-05-29T10:12:59.168+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-29T10:12:59.188+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): feature_engineering_etfs> on 2023-05-29 09:26:54.433175+00:00
+[2023-05-29T10:12:59.191+0000] {standard_task_runner.py:57} INFO - Started process 44636 to run task
+[2023-05-29T10:12:59.194+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'stock_market_dag', 'feature_engineering_etfs', 'manual__2023-05-29T09:26:54.433175+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpss8obn9f']
+[2023-05-29T10:12:59.196+0000] {standard_task_runner.py:85} INFO - Job 13: Subtask feature_engineering_etfs
+[2023-05-29T10:12:59.262+0000] {task_command.py:410} INFO - Running <TaskInstance: stock_market_dag.feature_engineering_etfs manual__2023-05-29T09:26:54.433175+00:00 [running]> on host 4b5d28de6f1c.mylabserver.com
+[2023-05-29T10:12:59.352+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_market_dag' AIRFLOW_CTX_TASK_ID='feature_engineering_etfs' AIRFLOW_CTX_EXECUTION_DATE='2023-05-29T09:26:54.433175+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-29T09:26:54.433175+00:00'
+[2023-05-29T10:12:59.353+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-29T10:12:59.354+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit /home/cloud_user/Stock-Market-Nasdaq/src/feature_engineering.py /home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format etfs /home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med || true']
+[2023-05-29T10:12:59.361+0000] {subprocess.py:86} INFO - Output:
+[2023-05-29T10:13:14.866+0000] {subprocess.py:93} INFO - 23/05/29 10:13:14 INFO SparkContext: Running Spark version 3.4.0
+[2023-05-29T10:13:15.411+0000] {subprocess.py:93} INFO - 23/05/29 10:13:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2023-05-29T10:13:16.143+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceUtils: ==============================================================
+[2023-05-29T10:13:16.144+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2023-05-29T10:13:16.145+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceUtils: ==============================================================
+[2023-05-29T10:13:16.146+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SparkContext: Submitted application: FeatureEngineering
+[2023-05-29T10:13:16.306+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 2, script: , vendor: , memory -> name: memory, amount: 8192, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2023-05-29T10:13:16.382+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceProfile: Limiting resource is cpus at 2 tasks per executor
+[2023-05-29T10:13:16.444+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2023-05-29T10:13:16.705+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SecurityManager: Changing view acls to: cloud_user
+[2023-05-29T10:13:16.707+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SecurityManager: Changing modify acls to: cloud_user
+[2023-05-29T10:13:16.764+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SecurityManager: Changing view acls groups to:
+[2023-05-29T10:13:16.766+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SecurityManager: Changing modify acls groups to:
+[2023-05-29T10:13:16.768+0000] {subprocess.py:93} INFO - 23/05/29 10:13:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: cloud_user; groups with view permissions: EMPTY; users with modify permissions: cloud_user; groups with modify permissions: EMPTY
+[2023-05-29T10:13:18.216+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO Utils: Successfully started service 'sparkDriver' on port 33991.
+[2023-05-29T10:13:18.375+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO SparkEnv: Registering MapOutputTracker
+[2023-05-29T10:13:18.538+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO SparkEnv: Registering BlockManagerMaster
+[2023-05-29T10:13:18.626+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2023-05-29T10:13:18.685+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2023-05-29T10:13:18.696+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2023-05-29T10:13:18.783+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6b95f6c4-cd73-47e0-8299-75e00dd2cd8f
+[2023-05-29T10:13:18.867+0000] {subprocess.py:93} INFO - 23/05/29 10:13:18 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2023-05-29T10:13:19.013+0000] {subprocess.py:93} INFO - 23/05/29 10:13:19 INFO SparkEnv: Registering OutputCommitCoordinator
+[2023-05-29T10:13:19.654+0000] {subprocess.py:93} INFO - 23/05/29 10:13:19 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2023-05-29T10:13:19.899+0000] {subprocess.py:93} INFO - 23/05/29 10:13:19 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2023-05-29T10:13:20.940+0000] {subprocess.py:93} INFO - 23/05/29 10:13:20 INFO Executor: Starting executor ID driver on host 4b5d28de6f1c.mylabserver.com
+[2023-05-29T10:13:21.004+0000] {subprocess.py:93} INFO - 23/05/29 10:13:20 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2023-05-29T10:13:21.125+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41489.
+[2023-05-29T10:13:21.125+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO NettyBlockTransferService: Server created on 4b5d28de6f1c.mylabserver.com:41489
+[2023-05-29T10:13:21.165+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2023-05-29T10:13:21.173+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 4b5d28de6f1c.mylabserver.com, 41489, None)
+[2023-05-29T10:13:21.178+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO BlockManagerMasterEndpoint: Registering block manager 4b5d28de6f1c.mylabserver.com:41489 with 434.4 MiB RAM, BlockManagerId(driver, 4b5d28de6f1c.mylabserver.com, 41489, None)
+[2023-05-29T10:13:21.182+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 4b5d28de6f1c.mylabserver.com, 41489, None)
+[2023-05-29T10:13:21.184+0000] {subprocess.py:93} INFO - 23/05/29 10:13:21 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 4b5d28de6f1c.mylabserver.com, 41489, None)
+[2023-05-29T10:13:23.325+0000] {subprocess.py:93} INFO - 23/05/29 10:13:23 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2023-05-29T10:13:23.342+0000] {subprocess.py:93} INFO - 23/05/29 10:13:23 INFO SharedState: Warehouse path is 'file:/tmp/airflowtmp1fw0x5yi/spark-warehouse'.
+[2023-05-29T10:13:28.210+0000] {subprocess.py:93} INFO - 23/05/29 10:13:28 INFO InMemoryFileIndex: It took 463 ms to list leaf files for 1 paths.
+[2023-05-29T10:13:31.267+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+[2023-05-29T10:13:31.345+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO DAGScheduler: Got job 0 (parquet at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2023-05-29T10:13:31.346+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO DAGScheduler: Final stage: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0)
+[2023-05-29T10:13:31.347+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO DAGScheduler: Parents of final stage: List()
+[2023-05-29T10:13:31.406+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO DAGScheduler: Missing parents: List()
+[2023-05-29T10:13:31.419+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-05-29T10:13:31.897+0000] {subprocess.py:93} INFO - 23/05/29 10:13:31 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 103.6 KiB, free 434.3 MiB)
+[2023-05-29T10:13:32.058+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 37.3 KiB, free 434.3 MiB)
+[2023-05-29T10:13:32.064+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 37.3 KiB, free: 434.4 MiB)
+[2023-05-29T10:13:32.127+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1535
+[2023-05-29T10:13:32.228+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2023-05-29T10:13:32.286+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2023-05-29T10:13:32.619+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (4b5d28de6f1c.mylabserver.com, executor driver, partition 0, PROCESS_LOCAL, 7615 bytes)
+[2023-05-29T10:13:32.701+0000] {subprocess.py:93} INFO - 23/05/29 10:13:32 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2023-05-29T10:13:34.533+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2175 bytes result sent to driver
+[2023-05-29T10:13:34.613+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2144 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (1/1)
+[2023-05-29T10:13:34.689+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2023-05-29T10:13:34.689+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO DAGScheduler: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0) finished in 3.183 s
+[2023-05-29T10:13:34.696+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2023-05-29T10:13:34.697+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2023-05-29T10:13:34.703+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO DAGScheduler: Job 0 finished: parquet at NativeMethodAccessorImpl.java:0, took 3.431125 s
+[2023-05-29T10:13:34.939+0000] {subprocess.py:93} INFO - 23/05/29 10:13:34 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 4b5d28de6f1c.mylabserver.com:41489 in memory (size: 37.3 KiB, free: 434.4 MiB)
+[2023-05-29T10:13:50.944+0000] {subprocess.py:93} INFO - 23/05/29 10:13:50 INFO FileSourceStrategy: Pushed Filters:
+[2023-05-29T10:13:51.020+0000] {subprocess.py:93} INFO - 23/05/29 10:13:51 INFO FileSourceStrategy: Post-Scan Filters:
+[2023-05-29T10:13:55.170+0000] {subprocess.py:93} INFO - 23/05/29 10:13:55 INFO CodeGenerator: Code generated in 1676.868662 ms
+[2023-05-29T10:13:55.334+0000] {subprocess.py:93} INFO - 23/05/29 10:13:55 INFO CodeGenerator: Code generated in 145.553669 ms
+[2023-05-29T10:13:55.743+0000] {subprocess.py:93} INFO - 23/05/29 10:13:55 INFO CodeGenerator: Code generated in 314.773404 ms
+[2023-05-29T10:13:55.985+0000] {subprocess.py:93} INFO - 23/05/29 10:13:55 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 202.8 KiB, free 434.2 MiB)
+[2023-05-29T10:13:56.135+0000] {subprocess.py:93} INFO - 23/05/29 10:13:56 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 35.3 KiB, free 434.2 MiB)
+[2023-05-29T10:13:56.137+0000] {subprocess.py:93} INFO - 23/05/29 10:13:56 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 35.3 KiB, free: 434.4 MiB)
+[2023-05-29T10:13:56.140+0000] {subprocess.py:93} INFO - 23/05/29 10:13:56 INFO SparkContext: Created broadcast 1 from parquet at NativeMethodAccessorImpl.java:0
+[2023-05-29T10:13:56.217+0000] {subprocess.py:93} INFO - 23/05/29 10:13:56 INFO FileSourceScanExec: Planning scan with bin packing, max size: 38508282 bytes, open cost is considered as scanning 4194304 bytes.
+[2023-05-29T10:13:57.890+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Registering RDD 5 (parquet at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+[2023-05-29T10:13:57.897+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Registering RDD 16 (parquet at NativeMethodAccessorImpl.java:0) as input to shuffle 1
+[2023-05-29T10:13:57.899+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Got map stage job 1 (parquet at NativeMethodAccessorImpl.java:0) with 4 output partitions
+[2023-05-29T10:13:57.900+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Final stage: ShuffleMapStage 2 (parquet at NativeMethodAccessorImpl.java:0)
+[2023-05-29T10:13:57.901+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+[2023-05-29T10:13:57.907+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+[2023-05-29T10:13:57.969+0000] {subprocess.py:93} INFO - 23/05/29 10:13:57 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[5] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-05-29T10:13:58.055+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 22.4 KiB, free 434.1 MiB)
+[2023-05-29T10:13:58.059+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 9.2 KiB, free 434.1 MiB)
+[2023-05-29T10:13:58.062+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 9.2 KiB, free: 434.4 MiB)
+[2023-05-29T10:13:58.064+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1535
+[2023-05-29T10:13:58.065+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[5] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+[2023-05-29T10:13:58.066+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks resource profile 0
+[2023-05-29T10:13:58.134+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (4b5d28de6f1c.mylabserver.com, executor driver, partition 0, PROCESS_LOCAL, 8872 bytes)
+[2023-05-29T10:13:58.138+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2) (4b5d28de6f1c.mylabserver.com, executor driver, partition 1, PROCESS_LOCAL, 8872 bytes)
+[2023-05-29T10:13:58.142+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+[2023-05-29T10:13:58.218+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO Executor: Running task 1.0 in stage 1.0 (TID 2)
+[2023-05-29T10:13:58.785+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO CodeGenerator: Code generated in 174.940977 ms
+[2023-05-29T10:13:58.858+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00006-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3511021, partition values: [empty row]
+[2023-05-29T10:13:58.858+0000] {subprocess.py:93} INFO - 23/05/29 10:13:58 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00000-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3507034, partition values: [empty row]
+[2023-05-29T10:13:59.744+0000] {subprocess.py:93} INFO - 23/05/29 10:13:59 INFO CodecPool: Got brand-new decompressor [.snappy]
+[2023-05-29T10:13:59.814+0000] {subprocess.py:93} INFO - 23/05/29 10:13:59 INFO CodecPool: Got brand-new decompressor [.snappy]
+[2023-05-29T10:14:11.581+0000] {subprocess.py:93} INFO - 23/05/29 10:14:11 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00008-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3510712, partition values: [empty row]
+[2023-05-29T10:14:12.380+0000] {subprocess.py:93} INFO - 23/05/29 10:14:12 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00004-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3505753, partition values: [empty row]
+[2023-05-29T10:14:15.807+0000] {subprocess.py:93} INFO - 23/05/29 10:14:15 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00007-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3508479, partition values: [empty row]
+[2023-05-29T10:14:16.212+0000] {subprocess.py:93} INFO - 23/05/29 10:14:16 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00002-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3505519, partition values: [empty row]
+[2023-05-29T10:14:17.900+0000] {subprocess.py:93} INFO - 23/05/29 10:14:17 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00009-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3508106, partition values: [empty row]
+[2023-05-29T10:14:18.933+0000] {subprocess.py:93} INFO - 23/05/29 10:14:18 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00005-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3505253, partition values: [empty row]
+[2023-05-29T10:14:20.139+0000] {subprocess.py:93} INFO - 23/05/29 10:14:20 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00001-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3507987, partition values: [empty row]
+[2023-05-29T10:14:21.186+0000] {subprocess.py:93} INFO - 23/05/29 10:14:21 INFO FileScanRDD: Reading File path: file:///home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format/etfs.parquet/part-00003-966f79cc-af88-429c-bd07-46a8f3c8f3c3-c000.snappy.parquet, range: 0-3503661, partition values: [empty row]
+[2023-05-29T10:14:22.767+0000] {subprocess.py:93} INFO - 23/05/29 10:14:22 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2100 bytes result sent to driver
+[2023-05-29T10:14:22.779+0000] {subprocess.py:93} INFO - 23/05/29 10:14:22 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 24710 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (1/2)
+[2023-05-29T10:14:23.898+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO Executor: Finished task 1.0 in stage 1.0 (TID 2). 2057 bytes result sent to driver
+[2023-05-29T10:14:23.902+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 25764 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (2/2)
+[2023-05-29T10:14:23.902+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2023-05-29T10:14:23.910+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: ShuffleMapStage 1 (parquet at NativeMethodAccessorImpl.java:0) finished in 25.919 s
+[2023-05-29T10:14:23.968+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: looking for newly runnable stages
+[2023-05-29T10:14:23.969+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: running: Set()
+[2023-05-29T10:14:23.970+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: waiting: Set(ShuffleMapStage 2)
+[2023-05-29T10:14:23.971+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: failed: Set()
+[2023-05-29T10:14:23.978+0000] {subprocess.py:93} INFO - 23/05/29 10:14:23 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[16] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-05-29T10:14:24.131+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 48.2 KiB, free 434.1 MiB)
+[2023-05-29T10:14:24.134+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 21.9 KiB, free 434.1 MiB)
+[2023-05-29T10:14:24.136+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 21.9 KiB, free: 434.3 MiB)
+[2023-05-29T10:14:24.137+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1535
+[2023-05-29T10:14:24.138+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[16] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+[2023-05-29T10:14:24.138+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO TaskSchedulerImpl: Adding task set 2.0 with 4 tasks resource profile 0
+[2023-05-29T10:14:24.144+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 3) (4b5d28de6f1c.mylabserver.com, executor driver, partition 0, NODE_LOCAL, 7352 bytes)
+[2023-05-29T10:14:24.145+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 4) (4b5d28de6f1c.mylabserver.com, executor driver, partition 1, NODE_LOCAL, 7352 bytes)
+[2023-05-29T10:14:24.146+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO Executor: Running task 0.0 in stage 2.0 (TID 3)
+[2023-05-29T10:14:24.208+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO Executor: Running task 1.0 in stage 2.0 (TID 4)
+[2023-05-29T10:14:24.613+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO ShuffleBlockFetcherIterator: Getting 2 (15.6 MiB) non-empty blocks including 2 (15.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:14:24.620+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 89 ms
+[2023-05-29T10:14:24.625+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO ShuffleBlockFetcherIterator: Getting 2 (14.2 MiB) non-empty blocks including 2 (14.2 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:14:24.626+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 88 ms
+[2023-05-29T10:14:24.933+0000] {subprocess.py:93} INFO - 23/05/29 10:14:24 INFO CodeGenerator: Code generated in 160.517871 ms
+[2023-05-29T10:14:25.093+0000] {subprocess.py:93} INFO - 23/05/29 10:14:25 INFO CodeGenerator: Code generated in 146.706698 ms
+[2023-05-29T10:14:25.507+0000] {subprocess.py:93} INFO - 23/05/29 10:14:25 INFO CodeGenerator: Code generated in 178.290258 ms
+[2023-05-29T10:14:25.736+0000] {subprocess.py:93} INFO - 23/05/29 10:14:25 INFO CodeGenerator: Code generated in 162.025549 ms
+[2023-05-29T10:14:26.769+0000] {subprocess.py:93} INFO - 23/05/29 10:14:26 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 4b5d28de6f1c.mylabserver.com:41489 in memory (size: 9.2 KiB, free: 434.3 MiB)
+[2023-05-29T10:14:32.055+0000] {subprocess.py:93} INFO - 23/05/29 10:14:32 INFO CodeGenerator: Code generated in 78.933613 ms
+[2023-05-29T10:14:32.298+0000] {subprocess.py:93} INFO - 23/05/29 10:14:32 INFO CodeGenerator: Code generated in 146.472326 ms
+[2023-05-29T10:14:32.467+0000] {subprocess.py:93} INFO - 23/05/29 10:14:32 INFO CodeGenerator: Code generated in 161.224158 ms
+[2023-05-29T10:15:09.814+0000] {subprocess.py:93} INFO - 23/05/29 10:15:09 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:15:30.467+0000] {subprocess.py:93} INFO - 23/05/29 10:15:30 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:15:44.953+0000] {subprocess.py:93} INFO - 23/05/29 10:15:44 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:15:51.971+0000] {subprocess.py:93} INFO - 23/05/29 10:15:51 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:15:56.935+0000] {subprocess.py:93} INFO - 23/05/29 10:15:56 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:16:04.792+0000] {subprocess.py:93} INFO - 23/05/29 10:16:04 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:16:42.471+0000] {subprocess.py:93} INFO - 23/05/29 10:16:42 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:16:54.234+0000] {subprocess.py:93} INFO - 23/05/29 10:16:54 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:17:19.820+0000] {subprocess.py:93} INFO - 23/05/29 10:17:19 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:17:23.513+0000] {subprocess.py:93} INFO - 23/05/29 10:17:23 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:17:39.198+0000] {subprocess.py:93} INFO - 23/05/29 10:17:39 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:17:46.217+0000] {subprocess.py:93} INFO - 23/05/29 10:17:46 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:17:54.626+0000] {subprocess.py:93} INFO - 23/05/29 10:17:54 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:14.303+0000] {subprocess.py:93} INFO - 23/05/29 10:18:14 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:15.905+0000] {subprocess.py:93} INFO - 23/05/29 10:18:15 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:36.223+0000] {subprocess.py:93} INFO - 23/05/29 10:18:36 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:40.077+0000] {subprocess.py:93} INFO - 23/05/29 10:18:40 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:48.623+0000] {subprocess.py:93} INFO - 23/05/29 10:18:48 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:18:55.841+0000] {subprocess.py:93} INFO - 23/05/29 10:18:55 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:19:00.943+0000] {subprocess.py:93} INFO - 23/05/29 10:19:00 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:19:11.832+0000] {subprocess.py:93} INFO - 23/05/29 10:19:11 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:19:22.227+0000] {subprocess.py:93} INFO - 23/05/29 10:19:22 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:19:41.593+0000] {subprocess.py:93} INFO - 23/05/29 10:19:41 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:20:08.637+0000] {subprocess.py:93} INFO - 23/05/29 10:20:08 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:21:08.322+0000] {subprocess.py:93} INFO - 23/05/29 10:21:08 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:21:30.159+0000] {subprocess.py:93} INFO - 23/05/29 10:21:30 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:21:39.837+0000] {subprocess.py:93} INFO - 23/05/29 10:21:39 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:21:43.762+0000] {subprocess.py:93} INFO - 23/05/29 10:21:43 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:22:01.927+0000] {subprocess.py:93} INFO - 23/05/29 10:22:01 INFO MemoryStore: Block rdd_11_0 stored as values in memory (estimated size 17.6 MiB, free 336.5 MiB)
+[2023-05-29T10:22:01.987+0000] {subprocess.py:93} INFO - 23/05/29 10:22:01 INFO BlockManagerInfo: Added rdd_11_0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 17.6 MiB, free: 416.7 MiB)
+[2023-05-29T10:22:02.002+0000] {subprocess.py:93} INFO - 23/05/29 10:22:02 INFO CodeGenerator: Code generated in 6.354384 ms
+[2023-05-29T10:22:02.393+0000] {subprocess.py:93} INFO - 23/05/29 10:22:02 INFO CodeGenerator: Code generated in 245.43578 ms
+[2023-05-29T10:22:11.354+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO Executor: Finished task 0.0 in stage 2.0 (TID 3). 5204 bytes result sent to driver
+[2023-05-29T10:22:11.359+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 5) (4b5d28de6f1c.mylabserver.com, executor driver, partition 2, NODE_LOCAL, 7352 bytes)
+[2023-05-29T10:22:11.362+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO Executor: Running task 2.0 in stage 2.0 (TID 5)
+[2023-05-29T10:22:11.431+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 3) in 467289 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (1/4)
+[2023-05-29T10:22:11.446+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO ShuffleBlockFetcherIterator: Getting 2 (15.6 MiB) non-empty blocks including 2 (15.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:22:11.447+0000] {subprocess.py:93} INFO - 23/05/29 10:22:11 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:22:27.910+0000] {subprocess.py:93} INFO - 23/05/29 10:22:27 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:22:40.329+0000] {subprocess.py:93} INFO - 23/05/29 10:22:40 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:22:47.910+0000] {subprocess.py:93} INFO - 23/05/29 10:22:47 INFO MemoryStore: Block rdd_11_1 stored as values in memory (estimated size 19.1 MiB, free 309.3 MiB)
+[2023-05-29T10:22:47.912+0000] {subprocess.py:93} INFO - 23/05/29 10:22:47 INFO BlockManagerInfo: Added rdd_11_1 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 19.1 MiB, free: 397.7 MiB)
+[2023-05-29T10:22:53.508+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO Executor: Finished task 1.0 in stage 2.0 (TID 4). 5204 bytes result sent to driver
+[2023-05-29T10:22:53.512+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 6) (4b5d28de6f1c.mylabserver.com, executor driver, partition 3, NODE_LOCAL, 7352 bytes)
+[2023-05-29T10:22:53.512+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO Executor: Running task 3.0 in stage 2.0 (TID 6)
+[2023-05-29T10:22:53.523+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 4) in 509377 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (2/4)
+[2023-05-29T10:22:53.603+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO ShuffleBlockFetcherIterator: Getting 2 (17.2 MiB) non-empty blocks including 2 (17.2 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:22:53.604+0000] {subprocess.py:93} INFO - 23/05/29 10:22:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:22:56.321+0000] {subprocess.py:93} INFO - 23/05/29 10:22:56 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:23:01.046+0000] {subprocess.py:93} INFO - 23/05/29 10:23:01 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:23:41.197+0000] {subprocess.py:93} INFO - 23/05/29 10:23:41 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:23:54.970+0000] {subprocess.py:93} INFO - 23/05/29 10:23:54 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:24:03.444+0000] {subprocess.py:93} INFO - 23/05/29 10:24:03 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:24:31.526+0000] {subprocess.py:93} INFO - 23/05/29 10:24:31 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:24:33.034+0000] {subprocess.py:93} INFO - 23/05/29 10:24:33 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:25:15.597+0000] {subprocess.py:93} INFO - 23/05/29 10:25:15 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:25:50.176+0000] {subprocess.py:93} INFO - 23/05/29 10:25:50 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:25:52.478+0000] {subprocess.py:93} INFO - 23/05/29 10:25:52 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:25:58.096+0000] {subprocess.py:93} INFO - 23/05/29 10:25:58 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:00.568+0000] {subprocess.py:93} INFO - 23/05/29 10:26:00 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:06.560+0000] {subprocess.py:93} INFO - 23/05/29 10:26:06 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:08.961+0000] {subprocess.py:93} INFO - 23/05/29 10:26:08 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:15.046+0000] {subprocess.py:93} INFO - 23/05/29 10:26:15 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:24.414+0000] {subprocess.py:93} INFO - 23/05/29 10:26:24 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:24.967+0000] {subprocess.py:93} INFO - 23/05/29 10:26:24 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:31.608+0000] {subprocess.py:93} INFO - 23/05/29 10:26:31 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:33.278+0000] {subprocess.py:93} INFO - 23/05/29 10:26:33 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:39.680+0000] {subprocess.py:93} INFO - 23/05/29 10:26:39 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:48.969+0000] {subprocess.py:93} INFO - 23/05/29 10:26:48 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:26:57.519+0000] {subprocess.py:93} INFO - 23/05/29 10:26:57 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:27:06.327+0000] {subprocess.py:93} INFO - 23/05/29 10:27:06 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:27:14.575+0000] {subprocess.py:93} INFO - 23/05/29 10:27:14 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:27:41.205+0000] {subprocess.py:93} INFO - 23/05/29 10:27:41 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:29:17.127+0000] {subprocess.py:93} INFO - 23/05/29 10:29:17 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:29:31.456+0000] {subprocess.py:93} INFO - 23/05/29 10:29:31 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:29:38.980+0000] {subprocess.py:93} INFO - 23/05/29 10:29:38 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:29:44.425+0000] {subprocess.py:93} INFO - 23/05/29 10:29:44 INFO ExternalAppendOnlyUnsafeRowArray: Reached spill threshold of 4096 rows, switching to org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter
+[2023-05-29T10:29:54.896+0000] {subprocess.py:93} INFO - 23/05/29 10:29:54 INFO MemoryStore: Block rdd_11_2 stored as values in memory (estimated size 19.1 MiB, free 298.3 MiB)
+[2023-05-29T10:29:54.898+0000] {subprocess.py:93} INFO - 23/05/29 10:29:54 INFO BlockManagerInfo: Added rdd_11_2 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 19.1 MiB, free: 378.6 MiB)
+[2023-05-29T10:30:00.331+0000] {subprocess.py:93} INFO - 23/05/29 10:30:00 INFO Executor: Finished task 2.0 in stage 2.0 (TID 5). 5204 bytes result sent to driver
+[2023-05-29T10:30:00.336+0000] {subprocess.py:93} INFO - 23/05/29 10:30:00 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 5) in 468977 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (3/4)
+[2023-05-29T10:30:24.741+0000] {subprocess.py:93} INFO - 23/05/29 10:30:24 INFO MemoryStore: Block rdd_11_3 stored as values in memory (estimated size 20.3 MiB, free 358.1 MiB)
+[2023-05-29T10:30:24.743+0000] {subprocess.py:93} INFO - 23/05/29 10:30:24 INFO BlockManagerInfo: Added rdd_11_3 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 20.3 MiB, free: 358.3 MiB)
+[2023-05-29T10:30:26.762+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO Executor: Finished task 3.0 in stage 2.0 (TID 6). 5204 bytes result sent to driver
+[2023-05-29T10:30:26.767+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 6) in 453256 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (4/4)
+[2023-05-29T10:30:26.767+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+[2023-05-29T10:30:26.806+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO DAGScheduler: ShuffleMapStage 2 (parquet at NativeMethodAccessorImpl.java:0) finished in 962.717 s
+[2023-05-29T10:30:26.807+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO DAGScheduler: looking for newly runnable stages
+[2023-05-29T10:30:26.807+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO DAGScheduler: running: Set()
+[2023-05-29T10:30:26.807+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO DAGScheduler: waiting: Set()
+[2023-05-29T10:30:26.807+0000] {subprocess.py:93} INFO - 23/05/29 10:30:26 INFO DAGScheduler: failed: Set()
+[2023-05-29T10:30:27.063+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:27.139+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:27.139+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:27.141+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:27.141+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:27.141+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:27.143+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:27.292+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+[2023-05-29T10:30:27.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Got job 2 (parquet at NativeMethodAccessorImpl.java:0) with 10 output partitions
+[2023-05-29T10:30:27.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Final stage: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:0)
+[2023-05-29T10:30:27.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+[2023-05-29T10:30:27.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Missing parents: List()
+[2023-05-29T10:30:27.303+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[18] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-05-29T10:30:27.544+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 212.1 KiB, free 357.9 MiB)
+[2023-05-29T10:30:27.545+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 76.3 KiB, free 357.8 MiB)
+[2023-05-29T10:30:27.546+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 4b5d28de6f1c.mylabserver.com:41489 (size: 76.3 KiB, free: 358.2 MiB)
+[2023-05-29T10:30:27.549+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1535
+[2023-05-29T10:30:27.607+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO DAGScheduler: Submitting 10 missing tasks from ResultStage 5 (MapPartitionsRDD[18] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+[2023-05-29T10:30:27.608+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO TaskSchedulerImpl: Adding task set 5.0 with 10 tasks resource profile 0
+[2023-05-29T10:30:27.611+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 7) (4b5d28de6f1c.mylabserver.com, executor driver, partition 0, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:27.612+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO TaskSetManager: Starting task 1.0 in stage 5.0 (TID 8) (4b5d28de6f1c.mylabserver.com, executor driver, partition 1, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:27.612+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO Executor: Running task 0.0 in stage 5.0 (TID 7)
+[2023-05-29T10:30:27.612+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO Executor: Running task 1.0 in stage 5.0 (TID 8)
+[2023-05-29T10:30:27.929+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:27.929+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:27.931+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:27.932+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:27.932+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:27.932+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:27.933+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:27.933+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:27.940+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:27.943+0000] {subprocess.py:93} INFO - 23/05/29 10:30:27 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:28.008+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:28.009+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:28.011+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:28.012+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:28.013+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:28.014+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:28.014+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:28.015+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:28.016+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:28.017+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:28.091+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:28.095+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:28.105+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:28.105+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:28.105+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:28.105+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:28.106+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.107+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.108+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.109+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:28.110+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:28.110+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.110+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.110+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:28.247+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.248+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.249+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:28.249+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.249+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:28.250+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:28.251+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:28.252+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:28.253+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.253+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.253+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.253+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.253+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.254+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.255+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.256+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:28.257+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:28.257+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.259+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.259+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.259+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:28.259+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.259+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.260+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:28.261+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:28.262+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:28.263+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:28.264+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:28.264+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:28.336+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO CodecPool: Got brand-new compressor [.snappy]
+[2023-05-29T10:30:28.339+0000] {subprocess.py:93} INFO - 23/05/29 10:30:28 INFO CodecPool: Got brand-new compressor [.snappy]
+[2023-05-29T10:30:39.709+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000001_8' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000001
+[2023-05-29T10:30:39.711+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000001_8: Committed. Elapsed time: 2 ms.
+[2023-05-29T10:30:39.768+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000000_7' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000000
+[2023-05-29T10:30:39.769+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000000_7: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:30:39.782+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO Executor: Finished task 0.0 in stage 5.0 (TID 7). 4826 bytes result sent to driver
+[2023-05-29T10:30:39.783+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO TaskSetManager: Starting task 2.0 in stage 5.0 (TID 9) (4b5d28de6f1c.mylabserver.com, executor driver, partition 2, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:39.785+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 7) in 12175 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (1/10)
+[2023-05-29T10:30:39.789+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO Executor: Running task 2.0 in stage 5.0 (TID 9)
+[2023-05-29T10:30:39.849+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO Executor: Finished task 1.0 in stage 5.0 (TID 8). 4783 bytes result sent to driver
+[2023-05-29T10:30:39.852+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO TaskSetManager: Starting task 3.0 in stage 5.0 (TID 10) (4b5d28de6f1c.mylabserver.com, executor driver, partition 3, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:39.858+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO TaskSetManager: Finished task 1.0 in stage 5.0 (TID 8) in 12243 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (2/10)
+[2023-05-29T10:30:39.858+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO Executor: Running task 3.0 in stage 5.0 (TID 10)
+[2023-05-29T10:30:39.936+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:39.937+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:39.939+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:39.939+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:39.940+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:39.940+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:39.940+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:39.945+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:39.945+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:39.945+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:39.946+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:39.947+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:39.948+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:39.948+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:39.949+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:39.950+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:39.950+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:39.950+0000] {subprocess.py:93} INFO - 23/05/29 10:30:39 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:40.010+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:40.010+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:40.010+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:40.010+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:40.010+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.011+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:40.012+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.013+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:40.014+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.015+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:40.016+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.017+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:40.021+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:40.022+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:40.023+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:40.023+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:40.023+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:40.023+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:40.027+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:40.028+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:40.028+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:40.028+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:40.090+0000] {subprocess.py:93} INFO - 23/05/29 10:30:40 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:40.090+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:40.090+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:40.090+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:40.090+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.091+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.092+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.093+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.094+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:40.095+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.096+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:40.097+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:40.097+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:40.103+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:40.104+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:40.105+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:47.054+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000003_10' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000003
+[2023-05-29T10:30:47.055+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000003_10: Committed. Elapsed time: 2 ms.
+[2023-05-29T10:30:47.058+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO Executor: Finished task 3.0 in stage 5.0 (TID 10). 4783 bytes result sent to driver
+[2023-05-29T10:30:47.060+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO TaskSetManager: Starting task 4.0 in stage 5.0 (TID 11) (4b5d28de6f1c.mylabserver.com, executor driver, partition 4, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:47.065+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO TaskSetManager: Finished task 3.0 in stage 5.0 (TID 10) in 7212 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (3/10)
+[2023-05-29T10:30:47.065+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO Executor: Running task 4.0 in stage 5.0 (TID 11)
+[2023-05-29T10:30:47.143+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:47.144+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:47.146+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:47.147+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:47.148+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:47.149+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:47.149+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:47.150+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:47.151+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:47.287+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:47.287+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:47.288+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.289+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.290+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.291+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.292+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.293+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:47.294+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.295+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:47.296+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:47.297+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000002_9' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000002
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000002_9: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO Executor: Finished task 2.0 in stage 5.0 (TID 9). 4783 bytes result sent to driver
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO TaskSetManager: Starting task 5.0 in stage 5.0 (TID 12) (4b5d28de6f1c.mylabserver.com, executor driver, partition 5, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO Executor: Running task 5.0 in stage 5.0 (TID 12)
+[2023-05-29T10:30:47.298+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO TaskSetManager: Finished task 2.0 in stage 5.0 (TID 9) in 7505 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (4/10)
+[2023-05-29T10:30:47.380+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:47.381+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:47.384+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:47.385+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:47.386+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:47.386+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:47.387+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:47.388+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:47.388+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:47.390+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:47.449+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:47.452+0000] {subprocess.py:93} INFO - 23/05/29 10:30:47 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:47.452+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:47.452+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:47.453+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.454+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:47.455+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.456+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:47.457+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.458+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:47.459+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:47.460+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:47.461+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:47.462+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:51.849+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000004_11' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000004
+[2023-05-29T10:30:51.850+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000004_11: Committed. Elapsed time: 59 ms.
+[2023-05-29T10:30:51.852+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO Executor: Finished task 4.0 in stage 5.0 (TID 11). 4740 bytes result sent to driver
+[2023-05-29T10:30:51.853+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO TaskSetManager: Starting task 6.0 in stage 5.0 (TID 13) (4b5d28de6f1c.mylabserver.com, executor driver, partition 6, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:51.854+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO Executor: Running task 6.0 in stage 5.0 (TID 13)
+[2023-05-29T10:30:51.856+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO TaskSetManager: Finished task 4.0 in stage 5.0 (TID 11) in 4797 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (5/10)
+[2023-05-29T10:30:51.941+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:51.941+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:51.941+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:51.942+0000] {subprocess.py:93} INFO - 23/05/29 10:30:51 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:52.010+0000] {subprocess.py:93} INFO - 23/05/29 10:30:52 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:52.019+0000] {subprocess.py:93} INFO - 23/05/29 10:30:52 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.020+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.021+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:52.022+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.023+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.024+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:52.025+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:52.026+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:52.027+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:52.028+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:52.029+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:52.029+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:52.088+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:52.088+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:52.088+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:52.088+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:52.088+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:53.217+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000005_12' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000005
+[2023-05-29T10:30:53.218+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000005_12: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:30:53.221+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO Executor: Finished task 5.0 in stage 5.0 (TID 12). 4783 bytes result sent to driver
+[2023-05-29T10:30:53.230+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO TaskSetManager: Starting task 7.0 in stage 5.0 (TID 14) (4b5d28de6f1c.mylabserver.com, executor driver, partition 7, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:53.287+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO Executor: Running task 7.0 in stage 5.0 (TID 14)
+[2023-05-29T10:30:53.303+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO TaskSetManager: Finished task 5.0 in stage 5.0 (TID 12) in 6072 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (6/10)
+[2023-05-29T10:30:53.541+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:53.542+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:53.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:53.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:53.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:53.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:53.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:53.548+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:53.549+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:53.550+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:53.690+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:53.693+0000] {subprocess.py:93} INFO - 23/05/29 10:30:53 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:53.693+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:53.693+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:53.693+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.694+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.695+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.696+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:53.697+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.698+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.699+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:53.700+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.701+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.702+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:53.702+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:53.702+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:53.702+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:53.703+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:53.704+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:53.705+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:53.705+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:53.705+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:53.705+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:53.705+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:56.664+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000006_13' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000006
+[2023-05-29T10:30:56.667+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000006_13: Committed. Elapsed time: 3 ms.
+[2023-05-29T10:30:56.737+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO Executor: Finished task 6.0 in stage 5.0 (TID 13). 4826 bytes result sent to driver
+[2023-05-29T10:30:56.739+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO TaskSetManager: Starting task 8.0 in stage 5.0 (TID 15) (4b5d28de6f1c.mylabserver.com, executor driver, partition 8, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:56.740+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO Executor: Running task 8.0 in stage 5.0 (TID 15)
+[2023-05-29T10:30:56.743+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO TaskSetManager: Finished task 6.0 in stage 5.0 (TID 13) in 4890 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (7/10)
+[2023-05-29T10:30:56.830+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:56.830+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:56.891+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:56.891+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:56.892+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:56.892+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:56.892+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:56.893+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:56.894+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:56.895+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:56.899+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:56.903+0000] {subprocess.py:93} INFO - 23/05/29 10:30:56 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.904+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.905+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.906+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.907+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.908+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:56.909+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.910+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:56.911+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:56.911+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:56.911+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:56.911+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:56.911+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:56.969+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:56.970+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:59.470+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000007_14' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000007
+[2023-05-29T10:30:59.471+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000007_14: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:30:59.542+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO Executor: Finished task 7.0 in stage 5.0 (TID 14). 4783 bytes result sent to driver
+[2023-05-29T10:30:59.543+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO TaskSetManager: Starting task 9.0 in stage 5.0 (TID 16) (4b5d28de6f1c.mylabserver.com, executor driver, partition 9, NODE_LOCAL, 7363 bytes)
+[2023-05-29T10:30:59.545+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO Executor: Running task 9.0 in stage 5.0 (TID 16)
+[2023-05-29T10:30:59.547+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO TaskSetManager: Finished task 7.0 in stage 5.0 (TID 14) in 6316 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (8/10)
+[2023-05-29T10:30:59.622+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO ShuffleBlockFetcherIterator: Getting 4 (14.6 MiB) non-empty blocks including 4 (14.6 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2023-05-29T10:30:59.623+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+[2023-05-29T10:30:59.625+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:59.625+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:59.626+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:59.626+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2023-05-29T10:30:59.626+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2023-05-29T10:30:59.626+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2023-05-29T10:30:59.627+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:59.628+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO CodecConfig: Compression: SNAPPY
+[2023-05-29T10:30:59.630+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2023-05-29T10:30:59.689+0000] {subprocess.py:93} INFO - 23/05/29 10:30:59 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2023-05-29T10:30:59.690+0000] {subprocess.py:93} INFO - {
+[2023-05-29T10:30:59.690+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2023-05-29T10:30:59.690+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2023-05-29T10:30:59.690+0000] {subprocess.py:93} INFO -     "name" : "Date",
+[2023-05-29T10:30:59.690+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.691+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.692+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "name" : "Adj_Close",
+[2023-05-29T10:30:59.693+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "name" : "Volume",
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "type" : "integer",
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.694+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "name" : "Symbol",
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "name" : "Security_Name",
+[2023-05-29T10:30:59.695+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2023-05-29T10:30:59.701+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.701+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.701+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "name" : "vol_moving_avg",
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -   }, {
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "name" : "adj_close_rolling_med",
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2023-05-29T10:30:59.702+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO -   } ]
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO - message spark_schema {
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO -   optional binary Date (STRING);
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO -   optional float Open;
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO -   optional float High;
+[2023-05-29T10:30:59.703+0000] {subprocess.py:93} INFO -   optional float Low;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional float Close;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional float Adj_Close;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional int32 Volume;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional binary Symbol (STRING);
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional binary Security_Name (STRING);
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional double vol_moving_avg;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO -   optional float adj_close_rolling_med;
+[2023-05-29T10:30:59.704+0000] {subprocess.py:93} INFO - }
+[2023-05-29T10:30:59.705+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:30:59.705+0000] {subprocess.py:93} INFO - 
+[2023-05-29T10:31:02.095+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000008_15' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000008
+[2023-05-29T10:31:02.096+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000008_15: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:31:02.099+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO Executor: Finished task 8.0 in stage 5.0 (TID 15). 4783 bytes result sent to driver
+[2023-05-29T10:31:02.105+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO TaskSetManager: Finished task 8.0 in stage 5.0 (TID 15) in 5362 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (9/10)
+[2023-05-29T10:31:02.893+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO FileOutputCommitter: Saved output of task 'attempt_20230529103027721304424197731266_0005_m_000009_16' to file:/home/cloud_user/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/etfs.parquet/_temporary/0/task_20230529103027721304424197731266_0005_m_000009
+[2023-05-29T10:31:02.894+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO SparkHadoopMapRedUtil: attempt_20230529103027721304424197731266_0005_m_000009_16: Committed. Elapsed time: 1 ms.
+[2023-05-29T10:31:02.896+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO Executor: Finished task 9.0 in stage 5.0 (TID 16). 4740 bytes result sent to driver
+[2023-05-29T10:31:02.901+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO TaskSetManager: Finished task 9.0 in stage 5.0 (TID 16) in 3354 ms on 4b5d28de6f1c.mylabserver.com (executor driver) (10/10)
+[2023-05-29T10:31:02.901+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool
+[2023-05-29T10:31:02.901+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO DAGScheduler: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:0) finished in 35.531 s
+[2023-05-29T10:31:02.902+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+[2023-05-29T10:31:02.902+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+[2023-05-29T10:31:02.902+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO DAGScheduler: Job 2 finished: parquet at NativeMethodAccessorImpl.java:0, took 35.606529 s
+[2023-05-29T10:31:02.905+0000] {subprocess.py:93} INFO - 23/05/29 10:31:02 INFO FileFormatWriter: Start to commit write Job 7770430f-eef1-4ada-8cc7-f3d6c7be0bb3.
+[2023-05-29T10:31:03.063+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO FileFormatWriter: Write Job 7770430f-eef1-4ada-8cc7-f3d6c7be0bb3 committed. Elapsed time: 158 ms.
+[2023-05-29T10:31:03.068+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO FileFormatWriter: Finished processing stats for write job 7770430f-eef1-4ada-8cc7-f3d6c7be0bb3.
+[2023-05-29T10:31:03.788+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO SparkContext: Invoking stop() from shutdown hook
+[2023-05-29T10:31:03.789+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2023-05-29T10:31:03.862+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO SparkUI: Stopped Spark web UI at http://4b5d28de6f1c.mylabserver.com:4040
+[2023-05-29T10:31:03.940+0000] {subprocess.py:93} INFO - 23/05/29 10:31:03 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2023-05-29T10:31:04.183+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO MemoryStore: MemoryStore cleared
+[2023-05-29T10:31:04.185+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO BlockManager: BlockManager stopped
+[2023-05-29T10:31:04.189+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2023-05-29T10:31:04.249+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2023-05-29T10:31:04.330+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO SparkContext: Successfully stopped SparkContext
+[2023-05-29T10:31:04.331+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO ShutdownHookManager: Shutdown hook called
+[2023-05-29T10:31:04.332+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-b3b39242-0bb9-44d1-bc3b-18684bfe680f/pyspark-212d7532-70d0-47ee-855c-174dc02cb317
+[2023-05-29T10:31:04.490+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-b3b39242-0bb9-44d1-bc3b-18684bfe680f
+[2023-05-29T10:31:04.505+0000] {subprocess.py:93} INFO - 23/05/29 10:31:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-aae87cf9-927f-4be4-adc2-b059db7c31f2
+[2023-05-29T10:31:04.921+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-29T10:31:04.975+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=stock_market_dag, task_id=feature_engineering_etfs, execution_date=20230529T092654, start_date=20230529T101259, end_date=20230529T103104
+[2023-05-29T10:31:05.009+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-29T10:31:05.025+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check
