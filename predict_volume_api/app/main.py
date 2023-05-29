@@ -15,7 +15,7 @@ class InputModel(BaseModel):
             raise ValueError('Input should contain exactly 2 elements')
         return value
 
-    @validator('my_tuple', each_item=True)
+    @validator('input', each_item=True)
     def validate_tuple_elements(cls, value):
         if not isinstance(value, float):
             raise ValueError('Input elements should be of type float')
@@ -32,6 +32,6 @@ def home():
 
 @app.post("/precdict", response_model=Volume)
 def predict(payload: InputModel):
-    volume= predict_volume(payload.txt)
+    volume= predict_volume(payload.input)
     return {"volume": volume}
 
