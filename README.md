@@ -24,4 +24,4 @@ The project is structured as follows:
 - `requirements.txt`: Lists the Python dependencies required to run the project.
 ## Description
 This project implements a data pipeline for processing raw stock market datasets, performing feature engineering, integrating ML training, and building an API service for model serving.
-![DAG](Untitled drawing.jpg)
+![DAG](Untitled%20drawing.jpg)
