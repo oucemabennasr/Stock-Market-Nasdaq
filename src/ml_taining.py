@@ -1,3 +1,4 @@
+import os
 import argparse
 import pandas as pd
 import xgboost as xgb
@@ -6,11 +7,13 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 import pickle
 import logging
 
+
+parser = argparse.ArgumentParser(description='ML training')
 parser.add_argument('data', type=str, choices=['etfs', 'stocks'], help='Data to process (etfs or stocks)')
 args = parser.parse_args()
 d = args.data
 
-data = pd.read_parquet('/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/{d}.parquet')
+data = pd.read_parquet(f'/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format_avg_med/{d}.parquet')
 
 
 data['Date'] = pd.to_datetime(data['Date'])
@@ -49,13 +52,14 @@ accuracy = (accurate_predictions / len(y_test)) * 100
 version = '1.0'
 
 # Save the trained model to disk with the version
-file_path = f'/home/oucemabennasr/Stock-Market-Nasdaq/model/model_{d}_{version}.pkl'
+file_path = '/home/oucemabennasr/Stock-Market-Nasdaq/model'
+os.makedirs(file_path, exist_ok=True)
+file_path = os.path.join(file_path, f'model{d}_{version}.pkl')
 
-model.save_model(f'/home/cloud_user/Stock-Market-Nasdaq/model/model_{version}.bin')
 with open(file_path, 'wb') as f:
     pickle.dump(model, f)
 # Set up logging
-logging.basicConfig(filename=f'/home/cloud_user/Stock-Market-Nasdaq/model/training_metrics_{d}{version}.log', level=logging.INFO)
+logging.basicConfig(filename=f'/home/oucemabennasr/Stock-Market-Nasdaq/data/logs/ml_logs/training_metrics_{d}{version}.log', level=logging.INFO)
 logger = logging.getLogger()
 
 # Log training metrics
