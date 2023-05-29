@@ -33,7 +33,7 @@ output_dir = '/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parque
 
 process_raw_data_etfs = BashOperator(
     task_id='process_raw_data_etfs',
-    bash_command=f'spark-submit {scripts_dir}/process_raw_data.py {data_dir} 20 etfs || true',
+    bash_command=f'spark-submit {scripts_dir}/process_raw_data.py {data_dir} 2164 etfs || true',
     trigger_rule='one_success',
     dag=dag,
 )
@@ -54,20 +54,20 @@ ml_training_etfs = BashOperator(
 
 process_raw_data_stocks = BashOperator(
     task_id='process_raw_data_stocks',
-    bash_command=f'spark-submit {scripts_dir}/process_raw_data.py {data_dir} 20 stocks || true',
+    bash_command=f'spark-submit {scripts_dir}/process_raw_data.py {data_dir} 5883 stocks || true',
     trigger_rule='one_success',
     dag=dag,
 )
 
 feature_engineering_stocks = BashOperator(
-    task_id='feature_engineering_stocks'',
+    task_id='feature_engineering_stocks',
     bash_command=f'spark-submit {scripts_dir}/feature_engineering.py {parquet_file_path} stocks {output_dir} || true',
     trigger_rule='one_success',
     dag=dag,
 )
 
-ml_training_etfs = BashOperator(
-    task_id='ml_training_stocks'',
+ml_training_stocks = BashOperator(
+    task_id='ml_training_stocks',
     bash_command=f'{scripts_dir}/ml_training.py stocks || true',
     trigger_rule='all_success',
     dag=dag,
