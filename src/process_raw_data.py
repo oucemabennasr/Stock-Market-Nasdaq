@@ -89,4 +89,4 @@ df = df.withColumnRenamed("Security Name", "Security_Name").withColumnRenamed("A
 num_partitions = 10
 df = df.repartition(num_partitions)
 # Write to Parquet
-df.write.parquet(os.path.join(directory_path, f'parquet_file/{data}.parquet'))
+df.write.parquet(f'/home/oucemabennasr/Stock-Market-Nasdaq/data/processed_data/parquet_format/{data}.parquet')
