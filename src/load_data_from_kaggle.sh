@@ -7,7 +7,7 @@ pip install kaggle
 # Create kaggle.json file
 kaggle_json='{"username":"bennasroussama","key":"9025a47c05f1866e244c283cb19d78d7"}'
 export KAGGLE_USERNAME=bennasroussama
-export KAGGLE_KEY=9025a47c05f1866e244c283cb19d78d7
+export KAGGLE_KEY=9025a47c05XXXXXXXXXXXb19d78d7
 mkdir  ~/.kaggle
 echo "$kaggle_json" > ~/.kaggle/kaggle.json
 
